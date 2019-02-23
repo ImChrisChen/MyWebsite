@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <my-header></my-header>
+        <home-body :article-data="articleData"></home-body>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+	import myHeader from './components/common/my-header'
+	import homeBody from './components/home-body'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		name: 'app',
+		data() {
+			return {
+				navData: [],
+				articleData: []
+			}
+		},
+		created() {
+			this.getNavData();
+			this.getArticleData();
+		},
+		methods: {
+			getNavData() {
+				this.axios.get("/get_nav_data").then(res => {
+					console.log(res);
+					this.navData = res.data;
+					// this.$router.addRoutes()
+				});
+			},
+			getArticleData() {
+				this.axios.get("/get_article_data").then(res => {
+					this.articleData = res.data;
+					console.log(res);
+				});
+			}
+		},
+		components: {
+			myHeader,
+			homeBody
+		}
+	}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
