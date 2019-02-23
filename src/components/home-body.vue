@@ -95,8 +95,8 @@
 
                             <div class="entry-thumb">
                                 <a href="single-standard.html" class="thumb-link">
-                                    <img :src="'../assets/images/thumbs/' + item.article_img" alt="building">
-                                    <!--<img :src=" './' + item.article_img" alt="building">-->
+                                    <!--<img :src="'../assets/images/thumbs/' + item.article_img" alt="building">-->
+                                    <img :src="'/images/thumbs/' + item.article_img" alt="building">
                                 </a>
                             </div>
 
