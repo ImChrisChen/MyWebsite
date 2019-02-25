@@ -1,13 +1,15 @@
 <template>
     <div id="app">
         <my-header></my-header>
-        <home-body :article-data="articleData"></home-body>
+        <router-view></router-view>
+        <my-footer></my-footer>
     </div>
 </template>
 
 <script>
 	import myHeader from './components/common/my-header'
-	import homeBody from './components/home-body'
+	import myFooter from './components/common/my-footer'
+	import home from './components/home'
 
 	export default {
 		name: 'app',
@@ -18,27 +20,13 @@
 			}
 		},
 		created() {
-			this.getNavData();
-			this.getArticleData();
+			// this.getNavData();
 		},
-		methods: {
-			getNavData() {
-				this.axios.get("/get_nav_data").then(res => {
-					console.log(res);
-					this.navData = res.data;
-					// this.$router.addRoutes()
-				});
-			},
-			getArticleData() {
-				this.axios.get("/get_article_data").then(res => {
-					this.articleData = res.data;
-					console.log(res);
-				});
-			}
-		},
+		methods: {},
 		components: {
 			myHeader,
-			homeBody
+			home,
+			myFooter,
 		}
 	}
 </script>

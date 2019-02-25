@@ -1019,7 +1019,7 @@ input::-moz-focus-inner {
  * --------------------------------------------------------------------- */
 .stats-tabs {
     padding: 0;
-    margin: 3rem 0;
+    /*margin: 3rem 0;*/
 }
 
 .stats-tabs li {
@@ -2196,7 +2196,7 @@ header .logo a {
     transform: rotate(-45deg);
 }
 
-.search-visible .search-wrap {
+.search-visible {
     opacity: 1;
     visibility: visible;
 }
@@ -2402,6 +2402,21 @@ header .logo a {
     background-color: #D1D1D1;
 }
 
+.bricks-wrapper {
+}
+
+.bricks-wrapper-box {
+    width: 100%;
+    display: flex !important;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.bricks-wrapper-box > div {
+    flex-basis: 25%;
+    height: auto !important;
+}
+
 .bricks-wrapper:before,
 .bricks-wrapper:after {
     content: "";
@@ -2420,6 +2435,7 @@ header .logo a {
 .bricks-wrapper .brick {
     float: left;
     padding: 0 20px;
+    width: 100%;
 }
 
 .bricks-wrapper .featured-grid {
